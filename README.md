@@ -4,9 +4,7 @@
 
 ### Descripton ###
 
-
-![a4e898_67ab9fd6ab4a4927a935dc2356897487~mv2](https://user-images.githubusercontent.com/69615463/94768926-6e15c980-03ce-11eb-8f83-c15607ff2bd6.gif)
-
+![maxresdefault](https://user-images.githubusercontent.com/69615463/94769137-f1371f80-03ce-11eb-9932-2574dcf82e75.jpg)
 
 ### Get wifi passwords with python  ###
 
