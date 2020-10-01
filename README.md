@@ -24,19 +24,19 @@ If you then type netsh wlan show profile {Profile Name} key=clear, the output pr
 <li>import subprocess</li>
 <ul>
 
-Next, get the output for the command "netsh wlan show profiles" using subprocess.check_output(). Then decode the output with utf-8 and split the string by a newline character to get each line in a separate string :
+<h5>Next, get the output for the command "netsh wlan show profiles" using subprocess.check_output(). Then decode the output with utf-8 and split the string by a newline character to get each line in a separate string :</h5>
 
 <ul>
 <li>data = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8').split('\n')</li>
 </ul>
 
-Now that we have a list of strings, we can get lines that only contain "All User Profile". With these lines we then need to split it by a ':', get the right hand side and remove the first and last character :
+<h5>Now that we have a list of strings, we can get lines that only contain "All User Profile". With these lines we then need to split it by a ':', get the right hand side and remove the first and last character :<h5>
 
 <ul>
 <li>profiles = [i.split(":")[1][1:-1] for i in data if "All User Profile" in i]
 </ul>
 
-Now that the variable a contains the WiFi profile names, we can get the output for the command "netsh wlan show profile {Profile Name} key=clear" using subprocess.check_output() again for a particular profile while looping through all profiles :
+<h5>Now that the variable a contains the WiFi profile names, we can get the output for the command "netsh wlan show profile {Profile Name} key=clear" using subprocess.check_output() again for a particular profile while looping through all profiles :<h5>
 
 <ul>
 <li>for i in profiles:</li>
@@ -44,13 +44,13 @@ Now that the variable a contains the WiFi profile names, we can get the output f
     results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', i, 'key=clear']).decode('utf-8').split('\n')
 </ul>
 
-Still in the loop, find lines that contain "Key Content", split by ':' and remove the first and last character just like before :
+<h5>Still in the loop, find lines that contain "Key Content", split by ':' and remove the first and last character just like before :</h5>
 
 <ul>
 <li> results = [b.split(":")[1][1:-1] for b in results if "Key Content" in b]</li>
 </ul>
 
-Now we should have a list containing one string which is the particular profiles key. Here you could just use a simple print statement but I have just formatted it a bit :
+<h5>Now we should have a list containing one string which is the particular profiles key. Here you could just use a simple print statement but I have just formatted it a bit :</h5>
 
 <ul>
 <li>try:</li>
@@ -62,13 +62,13 @@ Now we should have a list containing one string which is the particular profiles
         print ("{:<30}|  {:<}".format(i, ""))
 </ul>
 
-Now put an input call at the end of the script outside the loop so that when the script is run it will not immediately stop when results are displayed : 
+<h5>Now put an input call at the end of the script outside the loop so that when the script is run it will not immediately stop when results are displayed : <h5>
 
 <ul>
 <li>input("")</li>
 </ul>
 
-Save this file with a .py extension and you can now run the script. You can run it by double-clicking on the script, running it in IDLE or even cmd using python {filename}.
+<h5>Save this file with a .py extension and you can now run the script. You can run it by double-clicking on the script, running it in IDLE or even cmd using python {filename}.</h5>
 
 ### Final Script ###
 
@@ -81,7 +81,7 @@ data = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('ut
 profiles = [i.split(":")[1][1:-1] for i in data if "All User Profile" in i]
 <br>
 for i in profiles:
-<br>
+    <br>
     results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', i, 'key=clear']).decode('utf-8').split('\n')
     <br>
     results = [b.split(":")[1][1:-1] for b in results if "Key Content" in b]
